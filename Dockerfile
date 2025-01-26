@@ -1,5 +1,8 @@
 FROM frappe/erpnext:latest
 
+# Copy the CA certificate
+COPY certs/ca.pem /etc/ssl/certs/ca.pem
+
 # Set environment variables
 ENV DB_HOST=erpnext-mysql-na9ib-3939.g.aivencloud.com
 ENV DB_PORT=22482
@@ -8,8 +11,10 @@ ENV DB_PASSWORD=AVNS_O-TpO6UuJ9dR8QATMfq
 ENV DB_SSL_CA=/etc/ssl/certs/ca.pem
 ENV ADMIN_PASSWORD=1411$7552
 
-# Copy the CA certificate
-COPY certs/ca.pem /etc/ssl/certs/ca.pem
+# Initialize ERPNext
+RUN bench init erpnext && \
+    cd erpnext && \
+    bench new-site your-site-name --db-host=${DB_HOST} --db-port=${DB_PORT} --db-name=${DB_NAME} --db-password=${DB_PASSWORD} --admin-password=${ADMIN_PASSWORD}
 
 # Start ERPNext
 CMD ["bench", "start"]
