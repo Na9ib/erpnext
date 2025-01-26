@@ -1,0 +1,11 @@
+{
+  "db_host": "erpnext-mysql-na9ib-3939.g.aivencloud.com",
+  "db_port": 22482,
+  "db_name": "defaultdb",
+  "db_password": "AVNS_O-TpO6UuJ9dR8QATMfq",
+  "db_type": "mariadb",
+  "db_ssl_ca": "/etc/secrets/ca.pem",
+  "admin_password": "1411$7552",
+  "auto_update": 0,
+  "maintenance_mode": 0
+}
