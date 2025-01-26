@@ -9,7 +9,7 @@ ENV DB_SSL_CA=/etc/ssl/certs/ca.pem
 ENV ADMIN_PASSWORD=1411$7552
 
 # Copy the CA certificate
-COPY certs/ca.pem /etc/secrets/ca.pem
+COPY certs/ca.pem /etc/ssl/certs/ca.pem
 
 # Start ERPNext
 CMD ["bench", "start"]
