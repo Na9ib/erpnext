@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: erpnext
+    env: docker
+    dockerfilePath: ./Dockerfile
+    startCommand: bench start
